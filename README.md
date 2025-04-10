@@ -21,7 +21,9 @@ Add the following to your MCP config file:
 ```
 
 https://modelcontextprotocol.io/quickstart/user
+
 https://docs.cursor.com/context/model-context-protocol
+
 https://docs.windsurf.com/windsurf/mcp
 
 ![Screenshot 1](static/screenshot-1.png)
