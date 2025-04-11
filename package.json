@@ -9,8 +9,8 @@
   "scripts": {
     "start": "concurrently \"npm run build:watch\" \"npm run inspector\"",
     "inspector": "npx @modelcontextprotocol/inspector@latest -- nodemon --env-file=.env -q --watch dist dist/index.js",
-    "build": "tsup src/index.ts src/index.worker.ts --dts --clean",
-    "build:watch": "tsup src/index.ts src/index.worker.ts --dts --watch",
+    "build": "tsup src/index.ts --dts --clean",
+    "build:watch": "tsup src/index.ts --dts --watch",
     "test": "jest"
   },
   "dependencies": {
