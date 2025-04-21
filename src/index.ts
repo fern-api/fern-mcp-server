@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { createMcpServer, registerMcpTools } from "./mcp";
+import { createMcpServer, registerMcpTools } from "./mcp.js";
+import { createDb } from "./db.js";
 
 const packageJson = require("../package.json") as any;
 
@@ -12,7 +13,8 @@ async function run() {
   }
 
   const server = createMcpServer(packageJson.name, packageJson.version);
-  registerMcpTools(server);
+  const db = createDb();
+  registerMcpTools(server, db);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

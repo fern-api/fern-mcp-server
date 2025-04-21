@@ -6,7 +6,9 @@ describe("postChat", () => {
   it(
     "returns a non-empty string",
     async () => {
-      const result = await postChat("What is Fern AI Chat?");
+      const result = await postChat([
+        { role: "user", content: "What is Fern AI Chat?" },
+      ]);
       console.log({ result });
 
       expect(result).not.toBe("");
