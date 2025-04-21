@@ -2,6 +2,7 @@
   "name": "fern-mcp-server",
   "description": "Model Context Protocol (MCP) server for the Fern API.",
   "version": "0.1.0",
+  "type": "module",
   "bin": "dist/index.js",
   "files": [
     "dist"
@@ -9,12 +10,14 @@
   "scripts": {
     "start": "concurrently \"npm run build:watch\" \"npm run inspector\"",
     "inspector": "npx @modelcontextprotocol/inspector@latest -- nodemon --env-file=.env -q --watch dist dist/index.js",
-    "build": "tsup src/index.ts --dts --clean",
-    "build:watch": "tsup src/index.ts --dts --watch",
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "build:watch": "tsup src/index.ts --format esm --dts --watch",
     "test": "jest"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
+    "lowdb": "^7.0.1",
+    "uuid": "^11.1.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
