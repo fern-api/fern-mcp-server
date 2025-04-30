@@ -4,7 +4,7 @@ Install dependencies and start the development server:
 
 ```shell
 npm install
-npm start
+npm run dev
 ```
 
 Add the following to your MCP config file:
@@ -14,7 +14,7 @@ Add the following to your MCP config file:
   "mcpServers": {
     "fern": {
       "command": "node",
-      "args": ["<PATH_TO_PROJECT>/fern-mcp-server/dist/index.js"]
+      "args": ["<path-to-project>/fern-mcp-server/dist/index.js"]
     }
   }
 }
