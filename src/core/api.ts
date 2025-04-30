@@ -1,13 +1,13 @@
 const BASE_URL = "https://buildwithfern.com/learn";
 
-export async function postChat(message: string) {
+export async function askFernAi(request: { message: string }) {
   const response = await fetch(`${BASE_URL}/api/fern-docs/search/v2/chat`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      messages: [{ role: "user", content: message }],
+      messages: [{ role: "user", content: request.message }],
       url: "https://buildwithfern.com/learn",
       filters: [],
     }),

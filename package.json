@@ -1,7 +1,7 @@
 {
   "name": "fern-mcp-server",
   "description": "Model Context Protocol (MCP) server for the Fern API.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "bin": "dist/index.js",
   "files": [
     "dist"

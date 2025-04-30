@@ -1,12 +1,12 @@
-import { postChat } from "./api";
+import { askFernAi } from "./api";
 
 const TIMEOUT = 30000;
 
-describe("postChat", () => {
+describe("askFernAi", () => {
   it(
     "returns a non-empty string",
     async () => {
-      const result = await postChat("What is Fern AI Chat?");
+      const result = await askFernAi({ message: "What is Fern AI Chat?" });
       console.log({ result });
 
       expect(result).not.toBe("");
