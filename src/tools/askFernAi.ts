@@ -5,7 +5,7 @@ import z, { ZodRawShape } from "zod";
 
 export const name = "ask_fern_ai";
 export const description = "Ask Fern AI about anything related to Fern.";
-export const paramsSchema = askFernAiRequest.schema;
+export const paramsSchema = askFernAiRequest.shape;
 
 export function register(server: McpServer) {
   return server.tool(name, description, paramsSchema, async (params) => {
