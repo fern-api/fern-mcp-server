@@ -25,10 +25,17 @@ export function registerMcpTools(server: McpServer) {
     "Ask Fern AI about anything related to Fern.",
     { message: z.string() },
     async ({ message }) => {
-      const result = await api.postChat(message);
-      return {
-        content: [{ type: "text", text: result }],
-      };
+      try {
+        const result = await api.postChat(message);
+        return {
+          content: [{ type: "text", text: result }],
+        };
+      } catch (error) {
+        return {
+          content: [{ type: "text", text: "[ERROR] " + error.message }],
+          isError: true,
+        };
+      }
     }
   );
 }
