@@ -6,7 +6,7 @@ Once configured, your AI client uses the `ask_fern_ai` command to query Fern's k
 
 > Note: These instructions assume you already have an MCP-compatible AI client installed (Claude Desktop, Cursor, Windsurf, etc.).
 
-To get started with the Fern MCP:
+To get started with the Fern MCP server:
 
 1. Clone this repository and navigate into the `fern-mcp-server` directory. 
 
