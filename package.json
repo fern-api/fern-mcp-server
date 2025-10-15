@@ -14,8 +14,8 @@
     "build": "next build",
     "dev:local": "concurrently \"npm run build:local:watch\" \"npm run inspector:local\"",
     "inspector:local": "npx @modelcontextprotocol/inspector@latest -- nodemon -q --watch dist dist/index.js",
-    "build:local": "tsup src/index.ts --dts --clean",
-    "build:local:watch": "tsup src/index.ts --dts --watch",
+    "build:local": "tsup src/index.ts --dts --clean --tsconfig tsconfig.mcp.json",
+    "build:local:watch": "tsup src/index.ts --dts --watch --tsconfig tsconfig.mcp.json",
     "test": "jest"
   },
   "dependencies": {
