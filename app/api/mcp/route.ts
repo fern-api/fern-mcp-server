@@ -5,6 +5,7 @@ import * as mcpTools from "../../../src/tools";
 const handler = createMcpHandler(
   (server) => {
     mcpTools.registerAskFernTool(server);
+    mcpTools.registerFernAgentTool(server);
   },
   mcpServer.baseOptions,
   { basePath: "/api" }

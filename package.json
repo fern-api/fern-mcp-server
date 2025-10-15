@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
+    "@openai/agents": "^0.1.9",
     "mcp-handler": "^1.0.3",
     "next": "^15.1.6",
     "react": "^19.0.0",

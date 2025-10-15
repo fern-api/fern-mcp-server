@@ -18,4 +18,5 @@ export function createMcpServer(name: string, version: string) {
 // Register MCP tools
 export function registerMcpTools(server: McpServer) {
   mcpTools.registerAskFernTool(server);
+  mcpTools.registerFernAgentTool(server);
 }
