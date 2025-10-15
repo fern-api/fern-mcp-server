@@ -1,5 +1,15 @@
 dist/
 node_modules/
 
+# Logs
+*.log
+npm-debug.log*
+
+# Next.js
+.next/
+
 # System
 .DS_Store
+
+# Vercel
+.vercel/

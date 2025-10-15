@@ -28,12 +28,37 @@ async function streamToString(response: Response) {
   }
 
   let result = "";
+  let buffer = "";
+
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
 
-    // Convert the Uint8Array to a string and append
-    result += new TextDecoder().decode(value);
+    // Convert the Uint8Array to a string and append to buffer
+    buffer += new TextDecoder().decode(value);
+
+    // Process complete lines in the buffer
+    const lines = buffer.split("\n");
+    // Keep the last incomplete line in the buffer
+    buffer = lines.pop() || "";
+
+    for (const line of lines) {
+      // SSE format: "data: {...}"
+      if (line.startsWith("data: ") && line !== "data: [DONE]") {
+        try {
+          const jsonStr = line.substring(6); // Remove "data: " prefix
+          const data = JSON.parse(jsonStr);
+
+          // Extract text deltas which contain the actual response
+          if (data.type === "text-delta" && data.delta) {
+            result += data.delta;
+          }
+        } catch (e) {
+          // Skip invalid JSON lines
+          continue;
+        }
+      }
+    }
   }
 
   return result;

@@ -14,7 +14,7 @@ To get started with the Fern MCP server:
 
     ```shell
     npm install
-    npm start
+    npm dev:local
     ```
 
 1. Add the MCP server configuration to your AI client's config file. The

@@ -4,27 +4,39 @@
   "version": "0.1.0",
   "bin": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "api"
   ],
   "scripts": {
-    "start": "concurrently \"npm run build:watch\" \"npm run inspector\"",
-    "inspector": "npx @modelcontextprotocol/inspector@latest -- nodemon --env-file=.env -q --watch dist dist/index.js",
-    "build": "tsup src/index.ts --dts --clean",
-    "build:watch": "tsup src/index.ts --dts --watch",
+    "start": "next start",
+    "dev": "concurrently \"next dev\" \"npm run inspector\"",
+    "inspector": "npx @modelcontextprotocol/inspector@latest http://localhost:3000",
+    "build": "next build",
+    "dev:local": "concurrently \"npm run build:local:watch\" \"npm run inspector:local\"",
+    "inspector:local": "npx @modelcontextprotocol/inspector@latest -- nodemon -q --watch dist dist/index.js",
+    "build:local": "tsup src/index.ts --dts --clean",
+    "build:local:watch": "tsup src/index.ts --dts --watch",
     "test": "jest"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
+    "mcp-handler": "^1.0.3",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.13",
+    "@types/react": "19.2.2",
+    "@vercel/node": "^3.2.29",
     "concurrently": "^9.1.2",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
     "ts-jest": "^29.3.1",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vercel": "^39.2.8"
   }
 }
